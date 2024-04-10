@@ -1,0 +1,63 @@
+.root {
+    background-color: gray;
+}
+.main__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.header__container {
+    display: flex;
+    justify-content: space-between;
+}
+.delete__all-button-container {
+    padding-right: 10px;
+}
+.delete__all-button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background-color: aquamarine;
+    color: gray;
+}
+.delete__all-button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+.delete__last-button-container {
+    padding-right: 10px;
+}
+.delete__last-button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background-color: aquamarine;
+    color: gray;
+}
+.delete__last-button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+.enter__todo-input-container {
+    padding-right: 10px;
+}
+.enter__todo-input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+    border-radius: 5px;
+    border: 0;
+}
+.add__button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background-color: aquamarine;
+    color: gray;
+}
+.add__button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}

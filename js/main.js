@@ -1,0 +1,37 @@
+const root = document.getElementById('root');
+const mainContainer = document.createElement('div');
+mainContainer.className = 'main__container';
+root.append(mainContainer);
+const headerContainer = document.createElement('div');
+headerContainer.className = 'header__container';
+mainContainer.append(headerContainer);
+const deleteAllButtonContainer = document.createElement('div');
+deleteAllButtonContainer.className = 'delete__all-button-container';
+headerContainer.append(deleteAllButtonContainer);
+const deleteAllButton = document.createElement('button');
+deleteAllButton.className = 'delete__all-button'
+deleteAllButton.innerHTML = 'Delete All';
+deleteAllButtonContainer.append(deleteAllButton);
+const deleteLastButtonContainer = document.createElement('div');
+deleteLastButtonContainer.className = 'delete__last-button-container';
+headerContainer.append(deleteLastButtonContainer);
+const deleteLastButton = document.createElement('button');
+deleteLastButton.className = 'delete__last-button';
+deleteLastButton.innerHTML = 'Delete Last';
+deleteLastButtonContainer.append(deleteLastButton);
+const enterTodoInputContainer = document.createElement('div');
+enterTodoInputContainer.className = 'enter__todo-input-container';
+headerContainer.append(enterTodoInputContainer);
+const enterTodoInput = document.createElement('input');
+enterTodoInput.className = 'enter__todo-input';
+enterTodoInput.placeholder = 'Enter todo ...';
+enterTodoInputContainer.append(enterTodoInput);
+const addButtonContainer = document.createElement('div');
+addButtonContainer.className = 'add__button-container';
+headerContainer.append(addButtonContainer);
+const addButton = document.createElement('button');
+addButton.className = 'add__button';
+addButton.innerHTML = 'Add';
+addButtonContainer.append(addButton);
+
+console.log(document.body);
