@@ -89,6 +89,10 @@
     background-color: aquamarine;
     color: gray;
 }
+.show__all-button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
 .show__completed-button-container {
     padding-right: 10px;
 }
@@ -99,8 +103,9 @@
     background-color: aquamarine;
     color: gray;
 }
-.search__input-container {
-
+.show__completed-button:hover {
+    cursor: pointer;
+    opacity: 0.9;
 }
 .search__input {
     padding-top: 10px;
@@ -109,4 +114,58 @@
     border-radius: 5px;
     width: 100px;
     border: 0;
+}
+.task__card-container {
+    background-color: #414040;
+    margin-top: 20px;
+    padding: 20px;
+}
+.task__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.completed__button-container {
+    padding-right: 10px;
+}
+.completed__button {
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
+    background-color: aquamarine;
+    color: gray;
+}
+.completed__button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+.todo__text-container {
+    border-radius: 5px;
+    padding-right: 70px;
+    padding-left: 70px;
+    background-color: white;
+}
+.todo__text {
+    color: gray;
+}
+.date__close-container {
+    padding-left: 10px;
+}
+.close__button {
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
+    background-color: aquamarine;
+    color: gray;
+}
+.close__button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+.date__text {
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
+    background-color: white;
+    color: gray;
 }
