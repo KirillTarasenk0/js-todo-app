@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -13,7 +14,7 @@
     justify-content: space-between;
 }
 .delete__all-button-container {
-    padding-right: 10px;
+    padding-right: 15px;
 }
 .delete__all-button {
     padding: 10px;
@@ -27,7 +28,7 @@
     opacity: 0.9;
 }
 .delete__last-button-container {
-    padding-right: 10px;
+    padding-right: 15px;
 }
 .delete__last-button {
     padding: 10px;
@@ -41,7 +42,7 @@
     opacity: 0.9;
 }
 .enter__todo-input-container {
-    padding-right: 10px;
+    padding-right: 15px;
 }
 .enter__todo-input {
     padding-top: 10px;
@@ -60,4 +61,52 @@
 .add__button:hover {
     cursor: pointer;
     opacity: 0.9;
+}
+.buttons__main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.all__todos-container {
+    padding-right: 10px;
+}
+.all__todos-text {
+    color: #cecece;
+}
+.competed__container {
+    padding-right: 10px;
+}
+.completed__text {
+    color: #cecece;
+}
+.show__all-button-container {
+    padding-right: 10px;
+}
+.show__all-button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background-color: aquamarine;
+    color: gray;
+}
+.show__completed-button-container {
+    padding-right: 10px;
+}
+.show__completed-button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background-color: aquamarine;
+    color: gray;
+}
+.search__input-container {
+
+}
+.search__input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    border-radius: 5px;
+    width: 100px;
+    border: 0;
 }
