@@ -78,18 +78,18 @@ addBtn.addEventListener('click', () => {
     const todoInputText = document.querySelector('.enter__todo-input').value;
     const date = new Date().toJSON().slice(0, 10);
     cardsArray.push({cardCounter, todoInputText, date});
-    alert('Задание добавлено');
 });
 
 const showAllBtn = document.querySelector('.show__all-button');
-showAllBtn.addEventListener('click', () => {
-    for (let i = 0; i < cardsArray.length; i++) {
-        const taskCardContainer = document.createElement('div');
-        taskCardContainer.className = 'task__card-container';
-        taskCardContainer.className = `task__card-container-${cardsArray[i].cardCounter}`
-        mainContainer.append(taskCardContainer);
+let startPosition = 0;
+
+function updateDisplay(container) {
+    for (let i = startPosition; i < cardCounter; i++) {
+        container.className = 'task__card-container';
+        mainContainer.append(container);
         const taskCard = document.createElement('div');
         taskCard.className = 'task__card';
+        taskCard.id = `task__card-${cardsArray[i].cardCounter}`;
         taskCardContainer.append(taskCard);
         const completedButtonContainer = document.createElement('div');
         completedButtonContainer.className = 'completed__button-container';
@@ -125,7 +125,12 @@ showAllBtn.addEventListener('click', () => {
         dateText.innerHTML = cardsArray[i].date;
         dateText.className = 'date__text';
         dateContainer.append(dateText);
+        startPosition++;
     }
+}
+const taskCardContainer = document.createElement('div');
+showAllBtn.addEventListener('click', () => {
+    updateDisplay(taskCardContainer);
 });
 
 let completedArray = [];
@@ -133,7 +138,7 @@ document.addEventListener('click', (event) => {
     if (event.target.classList.contains('completed__button')) {
         const cardNumber = event.target.dataset.value;
         completedArray.push(cardNumber);
-        const taskCard = document.querySelector(`.task__card-container-${cardNumber}`);
+        const taskCard = document.querySelector(`#task__card-${cardNumber}`);
         const todoText = taskCard.querySelector('.todo__text');
         todoText.style.textDecoration = 'line-through';
         todoText.style.color = 'red';
@@ -147,7 +152,7 @@ document.addEventListener('click', (event) => {
     if (event.target.classList.contains('close__button')) {
         const cardNumber = event.target.dataset.value;
         cardsArray.splice(cardNumber - 1, 1);
-        const taskCard = document.querySelector(`.task__card-container-${cardNumber}`);
+        const taskCard = document.querySelector(`#task__card-${cardNumber}`);
         taskCard.remove();
         const allTodosText = document.querySelector('.all__todos-text');
         allTodosText.innerHTML = `All: ${--cardCounter}`;
@@ -158,22 +163,33 @@ document.addEventListener('click', (event) => {
 
 const deleteAllBtn = document.querySelector('.delete__all-button');
 deleteAllBtn.addEventListener('click', () => {
+    taskCardContainer.innerHTML = '';
+    updateDisplay(taskCardContainer);
      for (let i = 0; i <= cardsArray.length + 1; i++) {
          cardsArray.pop();
      }
-     console.log(cardsArray);
+    cardCounter = 0;
+    allTodosText.innerHTML = `All: ${cardCounter}`;
 });
 
 const deleteLastBtn = document.querySelector('.delete__last-button');
 deleteLastBtn.addEventListener('click', () => {
-    cardsArray.pop();
+    cardCounter--;
+    allTodosText.innerHTML = `All: ${cardCounter}`;
+    const lastCard = cardsArray.pop();
+    const taskCardToRemove = document.getElementById(`task__card-${lastCard.cardCounter}`);
+    taskCardToRemove.remove();
 });
+
+function update(value, container) {
+    container.innerHTML = `${cardsArray[value - 1].todoInputText}, ${cardsArray[value - 1].date}`;
+    mainContainer.append(container);
+}
 
 const showCompletedBtn = document.querySelector('.show__completed-button');
 showCompletedBtn.addEventListener('click', () => {
+    const completedTasks = document.createElement('div');
     completedArray.forEach((value) => {
-        const completedTasks = document.createElement('div');
-        completedTasks.innerHTML = `${cardsArray[value - 1].todoInputText}, ${cardsArray[value - 1].date}`;
-        mainContainer.append(completedTasks);
+        update(value, completedTasks);
     });
 });
